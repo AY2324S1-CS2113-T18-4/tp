@@ -97,7 +97,7 @@ public class Ui {
                 + "[/note ADDITIONAL_INFORMATION]` :\n    Add an expense.\n"
                 + "- `delete ENTRY_NUMBER` :\n    Delete an entry.\n"
                 + "- `view ENTRY_NUMBER` :\n    View an entry detail.\n"
-                + "- `exit` :\n    Exits the program.");
+                + "- `exit` :\n    Exit the program.");
         System.out.println(LINE);
     }
 
