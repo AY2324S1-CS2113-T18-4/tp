@@ -36,7 +36,8 @@ public class Transaction {
         count++;
     }
 
-    public void setTransaction(int amount, Date date, String description, String additionalInfo, TransactionCategory category) {
+    public void setTransaction(float amount, Date date, String description, String additionalInfo, 
+                               TransactionCategory category) {
         this.amount = amount;
         this.date = date;
         this.description = description;
