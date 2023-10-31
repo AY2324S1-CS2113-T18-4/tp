@@ -6,7 +6,6 @@ import seedu.nuscents.data.transaction.Transaction;
 import seedu.nuscents.data.transaction.TransactionCategory;
 import seedu.nuscents.ui.Ui;
 
-import javax.sound.sampled.Line;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
