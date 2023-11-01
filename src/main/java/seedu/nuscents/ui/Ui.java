@@ -72,7 +72,6 @@ public class Ui {
     }
 
     public static void showTransactionList(TransactionList transactionList) {
-        float netBalance = 0;
         System.out.println(LINE);
         if (transactionList.getTransactions().isEmpty()) {
             System.out.println(MESSAGE_EMPTY_LIST);
@@ -106,7 +105,6 @@ public class Ui {
                 System.out.printf("%-5s  %-10s  %-7s  %-18s  %-15s  %-10s %-5s %n", index, "Allowance",
                         "$" + String.format("%.2f", transaction.getAmount()), transaction.getFormattedDate(),
                         transaction.getDescription(), note, category);
-                netBalance += transaction.getAmount();
             } else if (transaction instanceof Expense) {
                 TransactionCategory expenseCategory = transaction.getCategory();
                 String category;
@@ -118,11 +116,11 @@ public class Ui {
                 System.out.printf("%-5s  %-10s  %-7s  %-18s  %-15s  %-10s  %-5s %n", index, "Expense",
                         "$" + String.format("%.2f", transaction.getAmount()), transaction.getFormattedDate(),
                         transaction.getDescription(), note, category);
-                netBalance -= transaction.getAmount();
             }
         }
         System.out.println(LINE);
-        System.out.println("Net Balance = " + String.format("%.2f", netBalance));
+        System.out.println("Net Balance = $" + String.format("%.2f", transactionList.getNetBalance()));
+        System.out.println("Budget  = $" + String.format("%.2f", transactionList.getBudget()));
         System.out.println(LINE);
     }
 
@@ -154,7 +152,7 @@ public class Ui {
         System.out.printf("%-5s  %-10s  %-7s  %-18s  %-15s  %-10s  %-5s %n",
                 "S/N", "TYPE", "AMOUNT", "DATE", "DESCRIPTION", "NOTE", "CATEGORY");
         System.out.println(LINE);
-        float netBalance = 0;
+        float totalAmount = 0;
         for (Transaction transaction : filteredTransactions) {
             int index = filteredTransactions.indexOf(transaction) + 1;
             String additionalInfo = transaction.getAdditionalInfo();
@@ -174,13 +172,13 @@ public class Ui {
                     "$" + String.format("%.2f", transaction.getAmount()), transaction.getFormattedDate(),
                     transaction.getDescription(), note, category);
             if (transaction instanceof Allowance) {
-                netBalance += transaction.getAmount();
+                totalAmount += transaction.getAmount();
             } else if (transaction instanceof Expense) {
-                netBalance -= transaction.getAmount();
+                totalAmount -= transaction.getAmount();
             }
         }
         System.out.println(LINE);
-        System.out.println("Net Balance = " + String.format("%.2f", netBalance));
+        System.out.println("Total amount for " + category + " = " + String.format("%.2f", totalAmount));
         System.out.println(LINE);
     }
 
@@ -190,6 +188,12 @@ public class Ui {
         System.out.println(LINE);
     }
 
+    public static void showBudgetSet(TransactionList transactionList) {
+        System.out.println(LINE);
+        System.out.println("Budget set to:");
+        System.out.println("  $" + transactionList.getBudget());
+        System.out.println(LINE);
+    }
 
     public static void showHelpMenu() {
         System.out.println(LINE);

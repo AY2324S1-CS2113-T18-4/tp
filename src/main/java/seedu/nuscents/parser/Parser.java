@@ -9,6 +9,7 @@ import seedu.nuscents.commands.HelpCommand;
 import seedu.nuscents.commands.InvalidCommand;
 import seedu.nuscents.commands.ViewCommand;
 import seedu.nuscents.commands.FilterCommand;
+import seedu.nuscents.commands.BudgetCommand;
 
 import seedu.nuscents.data.transaction.Transaction;
 import seedu.nuscents.data.transaction.Allowance;
@@ -30,10 +31,13 @@ import static seedu.nuscents.commands.ListOfCommands.COMMAND_DELETE;
 import static seedu.nuscents.commands.ListOfCommands.COMMAND_HELP;
 import static seedu.nuscents.commands.ListOfCommands.COMMAND_VIEW;
 import static seedu.nuscents.commands.ListOfCommands.COMMAND_FILTER;
+import static seedu.nuscents.commands.ListOfCommands.COMMAND_BUDGET;
 import static seedu.nuscents.ui.Messages.MESSAGE_EMPTY_ALLOWANCE;
 import static seedu.nuscents.ui.Messages.MESSAGE_EMPTY_EXPENSE;
 import static seedu.nuscents.ui.Messages.MESSAGE_EMPTY_INDEX;
 import static seedu.nuscents.ui.Messages.MESSAGE_EMPTY_KEYWORD;
+import static seedu.nuscents.ui.Messages.MESSAGE_EMPTY_BUDGET;
+import static seedu.nuscents.ui.Messages.MESSAGE_INVALID_BUDGET;
 import static seedu.nuscents.ui.Messages.MESSAGE_FATAL_ERROR;
 import static seedu.nuscents.ui.Messages.MESSAGE_INVALID_AMOUNT;
 import static seedu.nuscents.ui.Messages.MESSAGE_INVALID_DATE;
@@ -78,6 +82,8 @@ public class Parser {
                 return new ViewCommand(parseTaskIndex(arguments));
             case COMMAND_FILTER:
                 return new FilterCommand(parseFilterCategory(arguments));
+            case COMMAND_BUDGET:
+                return new BudgetCommand(parseBudget(arguments));
             case COMMAND_HELP:
                 if (arguments != null) {
                     throw new NuscentsException("OOPS!!! The correct format is 'help' alone.");
@@ -301,6 +307,18 @@ public class Parser {
             throw new NuscentsException(MESSAGE_EMPTY_KEYWORD);
         } else {
             return arguments;
+        }
+    }
+
+    public static float parseBudget(String arguments) throws NuscentsException {
+        if (arguments == null) {
+            throw new NuscentsException(MESSAGE_EMPTY_BUDGET);
+        }
+        try {
+            float budget = Float.parseFloat(arguments);
+            return budget;
+        } catch (NumberFormatException e) {
+            throw new NuscentsException(MESSAGE_INVALID_BUDGET);
         }
     }
 
