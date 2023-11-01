@@ -119,8 +119,7 @@ public class Ui {
             }
         }
         System.out.println(LINE);
-        System.out.println("Net Balance = $" + String.format("%.2f", transactionList.getNetBalance()));
-        System.out.println("Budget  = $" + String.format("%.2f", transactionList.getBudget()));
+        System.out.println("Net Balance = " + String.format("%.2f", transactionList.getNetBalance()));
         System.out.println(LINE);
     }
 
