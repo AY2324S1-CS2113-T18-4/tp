@@ -1,9 +1,7 @@
 package seedu.nuscents.data;
 
 import seedu.nuscents.data.transaction.Allowance;
-import seedu.nuscents.data.transaction.AllowanceCategory;
 import seedu.nuscents.data.transaction.Expense;
-import seedu.nuscents.data.transaction.ExpenseCategory;
 import seedu.nuscents.data.transaction.Transaction;
 import seedu.nuscents.data.transaction.TransactionCategory;
 import seedu.nuscents.ui.Ui;
@@ -83,12 +81,6 @@ public class TransactionList {
 
         for (Transaction transaction : transactions) {
             if (transaction.getCategory() == category) {
-                filteredTransactions.add(transaction);
-                isFound = true;
-            }
-
-            // hacky fix
-            if ((transaction.getCategory() == AllowanceCategory.OTHERS) && (category == ExpenseCategory.OTHERS)) {
                 filteredTransactions.add(transaction);
                 isFound = true;
             }

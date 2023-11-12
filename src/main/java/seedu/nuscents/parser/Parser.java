@@ -202,7 +202,7 @@ public class Parser {
     }
 
     public static ExpenseCategory parseExpenseCategory(String expenseCategory) throws NuscentsException {
-        String expenseCategoryLowercase = expenseCategory.toLowerCase();
+        String expenseCategoryLowercase = expenseCategory.toLowerCase().trim();
         ExpenseCategory category = null;
         switch (expenseCategoryLowercase) {
         case "food":
@@ -220,8 +220,8 @@ public class Parser {
         case "rent":
             category = ExpenseCategory.RENT;
             break;
-        case "others":
-            category = ExpenseCategory.OTHERS;
+        case "other_expense":
+            category = ExpenseCategory.OTHER_EXPENSE;
             break;
         case "":
             // fallthrough
@@ -235,7 +235,7 @@ public class Parser {
     }
 
     public static AllowanceCategory parseAllowanceCategory(String allowanceCategory) throws NuscentsException {
-        String allowanceCategoryLowerCase = allowanceCategory.toLowerCase();
+        String allowanceCategoryLowerCase = allowanceCategory.toLowerCase().trim();
         AllowanceCategory category = null;
         switch (allowanceCategoryLowerCase) {
         case "salary":
@@ -250,8 +250,8 @@ public class Parser {
         case "gifts":
             category = AllowanceCategory.GIFTS;
             break;
-        case "others":
-            category = AllowanceCategory.OTHERS;
+        case "other_allowance":
+            category = AllowanceCategory.OTHER_ALLOWANCE;
             break;
         case "":
             // fallthrough
@@ -268,7 +268,7 @@ public class Parser {
         if (transactionCategory == null) {
             throw new NuscentsException(MESSAGE_UNKNOWN_FILTER_CATEGORY);
         }
-        String allowanceCategoryLowerCase = transactionCategory.toLowerCase();
+        String allowanceCategoryLowerCase = transactionCategory.toLowerCase().trim();
         TransactionCategory category = null;
         switch (allowanceCategoryLowerCase) {
         case "salary":
@@ -298,8 +298,11 @@ public class Parser {
         case "rent":
             category = ExpenseCategory.RENT;
             break;
-        case "others":
-            category = ExpenseCategory.OTHERS;
+        case "other_allowance":
+            category = AllowanceCategory.OTHER_ALLOWANCE;
+            break;
+        case "other_expense":
+            category = ExpenseCategory.OTHER_EXPENSE;
             break;
         default:
             throw new NuscentsException(MESSAGE_UNKNOWN_FILTER_CATEGORY);
