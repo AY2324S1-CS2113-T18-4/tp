@@ -9,7 +9,7 @@ It is written in Java and has about 3kLoC.
 ## Summary of Contributions
 
 ### Code Contributed
-View my code contributions here: [Reposense](https://nus-cs2113-ay2324s1.github.io/tp-dashboard/?search=lckjosh&breakdown=true)
+View my code contributions here: [Reposense](https://nus-cs2113-ay2324s1.github.io/tp-dashboard/#/widget/?search=&sort=groupTitle&sortWithin=title&timeframe=commit&mergegroup=&groupSelect=groupByRepos&breakdown=true&checkedFileTypes=docs~functional-code~test-code&since=2023-09-22&chartGroupIndex=10&chartIndex=2)
 
 ### Enhancements implemented
 - Feature: Added the ability to add expenses
