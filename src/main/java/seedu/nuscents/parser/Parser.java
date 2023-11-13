@@ -34,7 +34,22 @@ import static seedu.nuscents.commands.ListOfCommands.COMMAND_VIEW;
 import static seedu.nuscents.commands.ListOfCommands.COMMAND_FILTER;
 import static seedu.nuscents.commands.ListOfCommands.COMMAND_BUDGET;
 import static seedu.nuscents.commands.ListOfCommands.COMMAND_EDIT;
-import static seedu.nuscents.ui.Messages.*;
+import static seedu.nuscents.ui.Messages.MESSAGE_EMPTY_INDEX;
+import static seedu.nuscents.ui.Messages.MESSAGE_EMPTY_ALLOWANCE;
+import static seedu.nuscents.ui.Messages.MESSAGE_EMPTY_EXPENSE;
+import static seedu.nuscents.ui.Messages.MESSAGE_INVALID_AMOUNT;
+import static seedu.nuscents.ui.Messages.MESSAGE_INVALID_DATE;
+import static seedu.nuscents.ui.Messages.MESSAGE_INVALID_INDEX;
+import static seedu.nuscents.ui.Messages.MESSAGE_INVALID_INDEX_ARGUMENTS;
+import static seedu.nuscents.ui.Messages.MESSAGE_UNKNOWN_EXPENSE_CATEGORY;
+import static seedu.nuscents.ui.Messages.MESSAGE_UNKNOWN_ALLOWANCE_CATEGORY;
+import static seedu.nuscents.ui.Messages.MESSAGE_UNKNOWN_FILTER_CATEGORY;
+import static seedu.nuscents.ui.Messages.MESSAGE_EMPTY_BUDGET;
+import static seedu.nuscents.ui.Messages.MESSAGE_INVALID_BUDGET;
+import static seedu.nuscents.ui.Messages.MESSAGE_INVALID_BUDGET_FLOAT_DP;
+import static seedu.nuscents.ui.Messages.MESSAGE_INVALID_BUDGET_SIZE;
+import static seedu.nuscents.ui.Messages.MESSAGE_EMPTY_EDIT;
+import static seedu.nuscents.ui.Messages.MESSAGE_FATAL_ERROR;
 
 public class Parser {
     private static final String DATE_PATTERN1 = "\\d{1,2}-\\d{1,2}-\\d{4}"; // dd-mm-yyyy
